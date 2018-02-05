@@ -163,4 +163,78 @@ value = Math.random(); // a random decimal
 console.log(value);
 
 // Strings and Concatenation
+const firstString = 'Janeeee is a Janurary born kid';
+const lastString = 'Woo';
 
+let vari;
+
+vari = firstString + lastString; 
+
+// Concatenate
+vari = firstString + ' ' + lastString;
+
+// Append
+vari = 'Apple';
+vari += 'Pen';
+
+// Escaping
+vari = "That's awesome.";
+vari = 'I\'m Alice'; // backslash makes sure the single quote after it does not count as the end quote of the string
+
+// Length
+
+vari = firstString.length;
+
+// concat()
+
+vari = firstString.concat(' ', lastString, ' ', 'Awesome');
+
+// Change cases
+
+vari = firstString.toUpperCase();
+vari = lastString.toLowerCase();
+
+// Take part of the string like an array
+
+vari = firstString[0];
+
+// indexOf()
+
+vari = firstString.indexOf('e'); // search for the first time substring appears
+
+vari = firstString.lastIndexOf('e'); // search for the last time substring appears
+
+// charAt()
+
+vari = firstString.charAt('2');
+
+vari = firstString.charAt(firstString.length - 1); // get the last char in the string
+
+// substring()
+
+vari = firstString.substring(0,3); // start index and last index
+
+// slice()
+
+vari = firstString.slice(0,3);
+
+// split()
+vari = firstString.split(' '); // gives you an object wihch contains the parts of the old string after splitting
+
+// replace()
+vari = firstString.replace('Jan', 'Jack'); //to replace a specific part of string to some other string; it replaces the first match only; enclose the string you want to replace with slashes will also replace the first mathc only; same as for RegExp()
+vari = firstString.replace(new RegExp('Jan'), 'Jack');
+vari = firstString.replace(/Jan/, 'Jack');
+
+// To replace all, use /string/g
+
+vari = firstString.replace(/Jan/g, 'Jack');
+vari = firstString.replace(new RegExp('Jan', 'g'), 'Jack');
+
+// includes()
+
+vari = firstString.includes('Jan'); // gives boolean results of whether the string you are searching for appears or not
+
+
+console.log(typeof vari);
+console.log(vari);
