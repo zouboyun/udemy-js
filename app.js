@@ -238,3 +238,38 @@ vari = firstString.includes('Jan'); // gives boolean results of whether the stri
 
 console.log(typeof vari);
 console.log(vari);
+
+
+// Template Literals
+
+const namie = 'Alice';
+const agie = 20;
+const job = 'front end developer';
+const city = 'NYC';
+let html;
+
+// without template string (es5 way)
+html = '<ul>' +
+       '<li>Name:' + namie + '</li>' +
+       '<li>Age:' + agie + '</li>' +
+       '<li>Job:' + job + '</li>' +
+       '<li>City:' + city + '</li>' +
+       '</ul>';
+
+function hello() {
+  return 'hello';
+}
+// with template string (es6 way) using backtick instead of single quote; you can put in numeric operations; call a function; have an if statement using ? and : as if then and else then
+html = `
+  <ul>
+    <li>Name:${namie}</li>
+    <li>Age:${agie}</li>
+    <li>Job:${job}</li>
+    <li>City:${city}</li>
+    <li>${2+2}</li>
+    <li>${hello()}</li>
+    <li>${age > 30 ? 'Over 30' : 'Under 30'}</li>
+  </ul>`;
+
+
+document.body.innerHTML = html;
