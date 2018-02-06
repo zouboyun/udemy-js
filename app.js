@@ -271,5 +271,49 @@ html = `
     <li>${age > 30 ? 'Over 30' : 'Under 30'}</li>
   </ul>`;
 
-
 document.body.innerHTML = html;
+
+// Array and Array methods
+
+// Create some arrays
+const numbers1 = [32, 100, 12, 53, 6]; // declare array using square brackets
+const numbers2 = new Array(22, 45, 23, 45, 12); // declare array by calling Array
+
+const fruit = ['apple', 'pineapple', 'kiwi'];
+const mix = [22, 'hello', undefined, null, {a:1, b:2}, new Date()];
+
+let cal;
+// get the length of array
+cal = numbers1.length;
+// check if is array
+cal = Array.isArray(numbers1); // check if a variable is an array
+// get single value through index
+cal = numbers1[0];
+// insert into array
+numbers1[6] = 100; // by assigning values to a certain position of an array you can insert elements into array, it's okay to insert more than the length it will just the positions in between as empty which is undefined data type
+
+// Find index of a value use indexOf() when it finds the first match, i.e. if the value you are searching appears multiple times in the same array it will only return the smallest index
+cal = numbers1.indexOf(100);
+
+// // mutate arrays
+// numbers1.push(250); // push will append the value at the end of the array
+// numbers1.unshift(99); // add to the front of the array
+// numbers1.pop(); // take off the value at the end of array
+// numbers1.shift(); // take off the front value in the array
+
+// // slice values
+// var a = numbers1.slice(1,3); // start index and end index as parameters, the value at start index is included but not the end index
+
+// // reverse array
+// numbers1.reverse(); // reverse will change the status of the orginal array but slice doesn't
+// a = numbers1.slice().reverse(); // reverse without mutate
+// // concatenate array
+// cal = numbers1.concat(numbers2);
+// cal = numbers1.concat(34);
+// cal = numbers1.concat('ohayo'); // you can concat anything you want
+
+// sort array
+
+console.log(a);
+console.log(numbers1);
+console.log(cal);
