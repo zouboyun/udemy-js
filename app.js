@@ -313,7 +313,25 @@ cal = numbers1.indexOf(100);
 // cal = numbers1.concat('ohayo'); // you can concat anything you want
 
 // sort array
+cal = fruit.sort(); // sort alphabetically
+// cal = numbers1.sort(); // sort from large to small and it mutates the array
+cal = numbers1.concat().sort(); // sort without mutation
+// use the compare function inside of sort
+cal = numbers1.sort(function(a, b) {
+  return a - b;
+}); // sort from small to large
 
-console.log(a);
+cal = numbers1.sort(function(a, b) {
+  return b - a;
+}); // change a - b to b - a and you will get large to small again
+
+// find
+function under50(num) {
+  return num < 50;
+}
+
+cal = numbers1.find(under50); // find the first number smaller than 50
+
+// console.log(a);
 console.log(numbers1);
 console.log(cal);
