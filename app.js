@@ -335,3 +335,32 @@ cal = numbers1.find(under50); // find the first number smaller than 50
 // console.log(a);
 console.log(numbers1);
 console.log(cal);
+
+
+// Object Literal
+
+const personie = {
+  firstName: 'Alice',
+  lastName: 'Zou',
+  age: 18,
+  hobbies: ['music', 'movies', 'badminton'],
+  getBirthYear: function() {
+    return 2018 - this.age;
+  },
+  address: {
+    state: 'MA',
+    city: 'Boston',
+    postCode: 10018
+  }
+}
+
+let val3;
+
+val3 = personie.firstName; // access items inside an object by the key name
+val3 = personie.lastName;
+val3 = personie.address['city']; // access items inside an object of an object by the key name in quotes
+val3 = personie.address.city;
+val3 = personie.getBirthYear(); // access function inside of an object
+
+console.log(val3);
+
