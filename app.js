@@ -364,3 +364,31 @@ val3 = personie.getBirthYear(); // access function inside of an object
 
 console.log(val3);
 
+// Date and Time
+
+let val4;
+
+const todayDate = new Date(); // Date is a default object in JavaScript, by default it is today's date
+val4 = todayDate;
+
+const birthday = new Date('11-29-2000'); // you can pass in any date you want
+
+const birthday1 = new Date('November 29 2000'); // you can change the format but it will be printed out in the same format as before
+
+val4 = birthday1;
+
+val4 = todayDate.getDate(); // get the date of today
+val4 = todayDate.getMonth(); // get the month of today and it is 0 based if this month is feb you will get 1 as result
+val4 = todayDate.getYear(); // get the year of today
+// val4 = todayDate.getDate(); // get the date of today
+
+val4 = todayDate.getTime();
+
+birthday.setDate(12); // chaneg the date of a date time object using setDate
+
+birthday.setFullYear(1987);
+
+console.log(val4);
+console.log(typeof val4);
+console.log(birthday);
+
