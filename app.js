@@ -515,3 +515,27 @@ switch (new Date().getDay()) {
 }
 // always remember to break after each case
 console.log(`Today is ${day}`);
+
+// Functions -- block of codes you may want to use later
+
+// Function declaration
+
+function greet() {
+  // console.log('hello');
+  return 'hello';
+}
+
+// now this function is declared, if you want to see hello, you have to CALL the function
+
+console.log(greet());
+
+// default parameters
+// ES5 use if paramter === 'undefined' then paramter = some value to default
+// ES6 you can default like following
+
+function greetings (firstName = 'Mike', lastName = 'Marcucilli') {
+  return 'oh hi ' + firstName + ' ' + lastName;
+}
+
+console.log(greetings('Alice', 'Zou'));
+console.log(greetings()); // this will print out oh hi Mike Marcucilli
