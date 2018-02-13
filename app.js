@@ -392,3 +392,84 @@ console.log(val4);
 console.log(typeof val4);
 console.log(birthday);
 
+// If statement
+
+const id = 100;
+
+// Equal to == double equal means comparing the value, === triple equal means comparing the data type and the value
+
+if (id == 101) {
+  console.log('correct');
+}
+else {
+  console.log('incorrect');
+}
+
+if (id === '101') {
+  console.log('correct');
+}
+else {
+  console.log('incorrect');
+}
+
+// Not equal != compare value; !== compare value and type
+
+if (id != 100) {
+  console.log('incorrect');
+}
+else {
+  console.log('correct');
+}
+
+// Test if undefined
+
+if(typeof id == 'undefined') {
+  console.log('no id');
+}
+else {
+  console.log(`id is ${id}`);
+}
+
+// greater or equal to >= less than or equal to <=
+
+// if else
+
+const color = 'yellow';
+const background = 'black';
+
+if (color == 'red') {
+  console.log(`color is ${color}`);
+}
+else if (color == 'blue') {
+  console.log('color is blue');
+}
+else {
+  console.log('color is not red nor blue');
+}
+
+// multiple conditions && and
+
+if (color == 'yellow' && background == 'black') {
+  console.log(`wow ${color} color in ${background} background`)
+}
+else {
+  console.log('ooops');
+}
+
+// multiple conditions || or
+
+if (color == 'red' || background == 'black') {
+  console.log(`wow ${color} color in ${background} background`)
+}
+else {
+  console.log('ooops');
+}
+
+// ternary operator '?' -> if this is true the output ':' -> if this is false the output
+
+console.log(id === 100 ? 'correct' : 'incorrect');
+
+// braces are optional in if statement
+
+if (id === 100)
+  console.log('yay');
