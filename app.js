@@ -444,7 +444,7 @@ else if (color == 'blue') {
   console.log('color is blue');
 }
 else {
-  console.log('color is not red nor blue');
+  console.log('color is not red or blue');
 }
 
 // multiple conditions && and
@@ -473,3 +473,45 @@ console.log(id === 100 ? 'correct' : 'incorrect');
 
 if (id === 100)
   console.log('yay');
+
+// switches - similar to if statements, it's like the case when in sql; use switch when there are a lot of situations and corresponding outcomes, it's easier than using if else
+
+switch (color) {
+  case 'red':
+  console.log('color is red');
+  break;
+  case 'blue':
+  console.log('color is red');
+  break;
+  default: // when none of the cases satisfy
+  console.log('color is not red or blue');
+  break;
+}
+
+let day;
+
+switch (new Date().getDay()) {
+  case 0:
+    day = 'Sunday';
+    break;
+  case 1:
+    day = 'Monday';
+    break;
+  case 2:
+    day = 'Tuesday';
+    break;
+  case 3:
+    day = 'Wednesday';
+    break;
+  case 4:
+    day = 'Thursday';
+    break;
+  case 5:
+    day = 'Friday';
+    break;
+  case 6:
+    day = 'Saturday';
+    break;
+}
+// always remember to break after each case
+console.log(`Today is ${day}`);
