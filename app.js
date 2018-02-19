@@ -573,3 +573,74 @@ todo.add();
 todo.edit(123);
 todo.delete();
 
+// loops and iteration
+
+// for -- you know how many times you want to loop to run
+for (var i = 0; i <= 10; i++) {
+  // console.log(i);
+  if(i === 2) {
+    console.log('log 2');
+    continue; // means go to the next iteration
+  }
+
+  if (i === 5) {
+    console.log('stop the loop');
+    break;
+  }
+
+  console.log('Number' + i);
+}
+
+// while -- you don't know how many times you want the code to run
+let y = 0;
+
+while(y < 0) {
+  console.log('Number' + y);
+  y++;
+}
+
+// do while -- it will always run at least once
+
+let ii = 0;
+
+do {
+  console.log('N0.' + ii);
+  ii++;
+}
+while(ii < 0);
+
+const cars = ['Ford', 'GTI', 'BMW', 'Honda'];
+
+for(let i = 0; i < cars.length; i ++) {
+  console.log(cars[i]);
+}
+
+// for each function -- to loop through array
+
+cars.forEach(function(car) {
+  console.log(car);
+});
+
+// MAP
+
+const users = [
+  {id:1, name:'Alice'},
+  {id:2, name:'James'},
+  {id:3, name:'Eric'}
+];
+
+const ids = users.map(function(user){
+  return user.id;
+})
+
+console.log(ids);
+
+// for in loop
+const user = {
+  firstName: 'Alice',
+  lastName: 'Awesome'
+}
+
+for(let x in user) {
+  console.log(`${x}: ${user[x]}`);
+} // loop through the lables
