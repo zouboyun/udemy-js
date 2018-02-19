@@ -539,3 +539,37 @@ function greetings (firstName = 'Mike', lastName = 'Marcucilli') {
 
 console.log(greetings('Alice', 'Zou'));
 console.log(greetings()); // this will print out oh hi Mike Marcucilli
+
+// Function expression
+
+const square = function(x = 3) {
+  return x * x;
+};
+// you have a variable that is a function, usually the function will be anonymous
+
+console.log(square(8));
+
+// immidiately invokable function expressions -- IIFES
+
+(function(name) {
+  console.log('IIFE Ran..' + name);
+})('Ryan'); // you declare and invoke the function at the same time
+
+// when you put a funtion inside of an object it's called a method
+
+const todo = {
+  add: function() {
+    console.log('Add todo..');
+  },
+  edit: function(id) {
+    console.log(`Edit todo .. ${id}`);
+  }
+} // you can decalre the function inside of the object or outside of the object
+
+todo.delete = function() {
+  console.log('Delete todo..');
+}
+todo.add();
+todo.edit(123);
+todo.delete();
+
