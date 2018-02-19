@@ -271,7 +271,7 @@ html = `
     <li>${age > 30 ? 'Over 30' : 'Under 30'}</li>
   </ul>`;
 
-document.body.innerHTML = html;
+// document.body.innerHTML = html;
 
 // Array and Array methods
 
@@ -644,3 +644,32 @@ const user = {
 for(let x in user) {
   console.log(`${x}: ${user[x]}`);
 } // loop through the lables
+
+// windows objects DOM -- global environment
+
+// window.console.log(123);
+
+// Alert
+// window.alert('hello world');
+
+// Promt -- similar to alert but takes input
+
+// const input = prompt();
+// alert(input);
+
+// Confirm
+// if(confirm('Are you sure?')) {
+//   console.log('YES');
+// } else {
+//   console.log('NO');
+// };
+
+// outer and inner height and width
+console.log(window.outerHeight);
+console.log(window.outerWidth);
+console.log(window.innerHeight);
+console.log(window.innerWidth);
+
+// scroll points
+
+console.log(window.scrollY);
