@@ -695,3 +695,27 @@ console.log(window.navigator.appVersion);
 console.log(window.navigator.userAgent);
 console.log(window.navigator.vendor);
 
+
+// scope
+
+var a = 1;
+let b = 2;
+const c = 3;
+
+function testing() {
+  var a = 4; // it is a new variable defined inside of the function scope
+  // let b = 5; // if i comment it out the function scope will find the nearest parent which is the global scope and pass in the value it has
+  const c = 6;
+  console.log('Function Scope: ', a, b, c);
+}
+
+testing();
+
+if(true) {
+  var a = 4; // var will change the global variable but let and const will not
+  let b = 7;
+  const c = 8;
+  console.log('IF Scope: ', a, b, c);
+}
+
+console.log('Global Scope: ', a, b, c);
