@@ -665,11 +665,33 @@ for(let x in user) {
 // };
 
 // outer and inner height and width
-console.log(window.outerHeight);
-console.log(window.outerWidth);
-console.log(window.innerHeight);
-console.log(window.innerWidth);
+// console.log(window.outerHeight);
+// console.log(window.outerWidth);
+// console.log(window.innerHeight);
+// console.log(window.innerWidth);
 
 // scroll points
 
-console.log(window.scrollY);
+// console.log(window.scrollY);
+
+// location object
+
+console.log(window.location.search);
+
+// redirect
+// window.location.href = 'http://google.com';
+console.log(window.location.href);
+
+//reload
+// window.location.reload();
+
+// history object
+// window.history.go(-1);
+
+// navigator object -- information about your browser
+console.log(window.navigator);
+console.log(window.navigator.appName);
+console.log(window.navigator.appVersion);
+console.log(window.navigator.userAgent);
+console.log(window.navigator.vendor);
+
