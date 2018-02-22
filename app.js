@@ -719,3 +719,12 @@ if(true) {
 }
 
 console.log('Global Scope: ', a, b, c);
+
+// The DOM -- document object model
+// tree of nodes/ elements created by the browser
+// this is object oriented representation meaning each node has its own attributes, methods you can add or modify or remove
+
+// inside of window object there is a document object
+
+// console.log(typeof window.document);
+
