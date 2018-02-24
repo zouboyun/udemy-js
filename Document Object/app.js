@@ -63,3 +63,13 @@ document.querySelector('ul li:nth-child(2)').textContent= 'Busy Being Awesome';
 document.querySelector('ul li:nth-child(odd)').style.background= '#ccc'; // first odd
 
 document.querySelector('ul li:nth-child(even)').style.background= '#333'; // first even
+
+// DOM selector for multiple elements
+
+// document.getElementsByClassName
+
+const items = document.getElementsByClassName('collection-item');
+
+console.log(items);
+
+items[0].style.color = 'red';
