@@ -55,7 +55,7 @@ document.querySelector('li:last-child').style.color = 'black';
 document.querySelector('ul li:last-child').style.color = 'red'; // css 3 stuff pseudo class, make the last child red
 // specify nth child
 
-document.querySelector('ul li:nth-child(4)').style.color = 'yellow';
+document.querySelector('ul li:nth-child(4)').style.color = 'black';
 
 document.querySelector('ul li:nth-child(2)').textContent= 'Busy Being Awesome';
 
@@ -73,3 +73,45 @@ const items = document.getElementsByClassName('collection-item');
 console.log(items);
 
 items[0].style.color = 'red';
+items[3].textContent = 'Hiahia';
+
+const listItems = document.querySelector('ul').getElementsByClassName('collection-item'); // not under global scope, will not include nodes that are not ul tags
+
+console.log(listItems);
+
+// document.getElementsByTagName
+
+let lis = document.getElementsByTagName('li');
+console.log(lis);
+
+// convert html collection to array
+
+lis = Array.from(lis);
+
+console.log(lis.reverse());
+
+lis.forEach(function(li, index) {
+  console.log(li.className);
+  li.textContent = `${index}: wow`;
+})
+
+// document.querySelectorAll
+
+const allItems = document.querySelectorAll('ul.collection li.collection-item');
+
+console.log(allItems); // log the Nodelist
+
+const liOdd = document.querySelectorAll('li:nth-child(odd)');
+const liEven = document.querySelectorAll('li:nth-child(even)');
+
+liOdd.forEach(function(liOdd, index) {
+  liOdd.style.background = '#ccc';
+});
+
+liEven.forEach(function(liEven, index) {
+  liEven.style.color = 'red';
+});
+
+for(let i = 0; i < liEven.length; i++) {
+  liEven[i].style.background = '#f4f4f4';
+}
