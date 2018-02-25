@@ -117,56 +117,85 @@
 // }
 
 // Traverse DOM -- move things up and down
-let val;
+// let val;
 
-const list = document.querySelector('ul.collection');
-const listItem = document.querySelector('li.collection-item:first-child');
+// const list = document.querySelector('ul.collection');
+// const listItem = document.querySelector('li.collection-item:first-child');
 
-val = listItem;
-val = list;
+// val = listItem;
+// val = list;
 
-// get child nodes
+// // get child nodes
 
-val = list.childNodes;// there are 5 li children and 6 text which are just line breakers
-val = list.childNodes[0].nodeName;
-val = list.childNodes[1].nodeName;
-val = list.childNodes[0].nodeType;// 3
-val = list.childNodes[1].nodeType;// 1
-val = list.childNodes[3].nodeType;// 8
+// val = list.childNodes;// there are 5 li children and 6 text which are just line breakers
+// val = list.childNodes[0].nodeName;
+// val = list.childNodes[1].nodeName;
+// val = list.childNodes[0].nodeType;// 3
+// val = list.childNodes[1].nodeType;// 1
+// val = list.childNodes[3].nodeType;// 8
 
-// node types
+// // node types
 
-// 1 - Element
-// 2 - Attribute (deprecated)
-// 3 - Text node
-// 8 - Comment
-// 9 - Document itself
-// 10 - Doctype
+// // 1 - Element
+// // 2 - Attribute (deprecated)
+// // 3 - Text node
+// // 8 - Comment
+// // 9 - Document itself
+// // 10 - Doctype
 
-// get children element nodes
+// // get children element nodes
 
-val = list.children; // no text just the children elements
-val = list.children[1];
-list.children[1].textContent = 'hello';
-val = list.children[3].children[0];
-val = list.firstChild;// could be text node
-val = list.firstElementChild;// the first element child
-val = list.lastChild;
-val = list.lastElementChild;
+// val = list.children; // no text just the children elements
+// val = list.children[1];
+// list.children[1].textContent = 'hello';
+// val = list.children[3].children[0];
+// val = list.firstChild;// could be text node
+// val = list.firstElementChild;// the first element child
+// val = list.lastChild;
+// val = list.lastElementChild;
 
-val = list.childElementCount; // gives the number of children
+// val = list.childElementCount; // gives the number of children
 
-// we can also get parent information
+// // we can also get parent information
 
-val = listItem.parentNode;
-val = listItem.parentElement; // non text result
-val = listItem.parentNode.parentNode; // grand parents
+// val = listItem.parentNode;
+// val = listItem.parentElement; // non text result
+// val = listItem.parentNode.parentNode; // grand parents
 
-// get sibling information
+// // get sibling information
 
-val = listItem.nextSibling;
-val = listItem.nextElementSibling; // non text result
-val = listItem.previousSibling;
-val = listItem.previousElementSibling; // it is null becuase listItem is the first child there is no previous element sibling
+// val = listItem.nextSibling;
+// val = listItem.nextElementSibling; // non text result
+// val = listItem.previousSibling;
+// val = listItem.previousElementSibling; // it is null becuase listItem is the first child there is no previous element sibling
 
-console.log(val);
+// console.log(val);
+
+// create elements and insert into DOM
+const li = document.createElement('li');
+
+// Add class
+li.className = 'collection-item';
+li.id = 'new-item';
+li.setAttribute('title', 'New Item');
+
+// create text node and append
+li.appendChild(document.createTextNode('Hello World'));
+
+// create new link element
+const link = document.createElement('a');
+
+// Add class
+link.className = 'delete-item secondary-content';
+
+// Add icon html
+link.innerHTML = '<i class =  "fa fa-remove"></i>';
+
+// append link to li
+li.appendChild(link);
+// append li as child of ul
+
+document.querySelector('ul.collection').appendChild(li);
+
+console.log(li);
+console.log(link);
