@@ -172,30 +172,89 @@
 // console.log(val);
 
 // create elements and insert into DOM
-const li = document.createElement('li');
+// const li = document.createElement('li');
 
-// Add class
-li.className = 'collection-item';
-li.id = 'new-item';
-li.setAttribute('title', 'New Item');
+// // Add class
+// li.className = 'collection-item';
+// li.id = 'new-item';
+// li.setAttribute('title', 'New Item');
 
-// create text node and append
-li.appendChild(document.createTextNode('Hello World'));
+// // create text node and append
+// li.appendChild(document.createTextNode('Hello World'));
 
-// create new link element
-const link = document.createElement('a');
+// // create new link element
+// const link = document.createElement('a');
 
-// Add class
-link.className = 'delete-item secondary-content';
+// // Add class
+// link.className = 'delete-item secondary-content';
 
-// Add icon html
-link.innerHTML = '<i class =  "fa fa-remove"></i>';
+// // Add icon html
+// link.innerHTML = '<i class =  "fa fa-remove"></i>';
 
-// append link to li
-li.appendChild(link);
-// append li as child of ul
+// // append link to li
+// li.appendChild(link);
+// // append li as child of ul
 
-document.querySelector('ul.collection').appendChild(li);
+// document.querySelector('ul.collection').appendChild(li);
 
-console.log(li);
+// console.log(li);
+// console.log(link);
+
+// replace elements
+
+// create element
+
+const newHeading = document.createElement('h2');
+
+// add id
+
+newHeading.id = 'task-title';
+
+// new text node
+
+newHeading.appendChild(document.createTextNode('Task List'));
+
+// get the old heading
+
+const oldHeading = document.getElementById('task-title');
+// get old heading's parent
+
+const cardAction = document.querySelector('.card-action');
+
+// replace -- replaceChild(new element, old element);
+
+cardAction.replaceChild(newHeading, oldHeading);
+
+// remove element
+const lis = document.querySelectorAll('li');
+const list = document.querySelector('ul');
+
+lis[0].remove(); // remove from lis
+list.removeChild(lis[3]); // remove from list the parent
+
+// class
+
+const firstLi = document.querySelector('li:first-child');
+const link = firstLi.children[0];
+link.classList.add('test'); // add a new class
+link.classList.remove('delete-item'); // remove a class
+
+
+// attribute
+
+link.setAttribute('href', 'http://www.google.com'); // set attribute specify attribute name and the value you want to pass
+link.hasAttribute('title'); // test if an attribtue exist or ntoe, returns true or false
+link.setAttribute('title', 'Google');
+link.removeAttribute('title');
+link.hasAttribute('title');
+
+console.log(link.getAttribute('href'));
+console.log(link.getAttribute('class'));
+console.log(firstLi);
 console.log(link);
+console.log(link.className); // returns all class names without parsing
+console.log(link.classList[0]); // class list is a token list, looks like an array, youc an fetch each class by specifying the index
+
+console.log(newHeading);
+console.log(oldHeading);
+console.log(cardAction);
