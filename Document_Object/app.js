@@ -204,57 +204,97 @@
 
 // create element
 
-const newHeading = document.createElement('h2');
+// const newHeading = document.createElement('h2');
 
-// add id
+// // add id
 
-newHeading.id = 'task-title';
+// newHeading.id = 'task-title';
 
-// new text node
+// // new text node
 
-newHeading.appendChild(document.createTextNode('Task List'));
+// newHeading.appendChild(document.createTextNode('Task List'));
 
-// get the old heading
+// // get the old heading
 
-const oldHeading = document.getElementById('task-title');
-// get old heading's parent
+// const oldHeading = document.getElementById('task-title');
+// // get old heading's parent
 
-const cardAction = document.querySelector('.card-action');
+// const cardAction = document.querySelector('.card-action');
 
-// replace -- replaceChild(new element, old element);
+// // replace -- replaceChild(new element, old element);
 
-cardAction.replaceChild(newHeading, oldHeading);
+// cardAction.replaceChild(newHeading, oldHeading);
 
-// remove element
-const lis = document.querySelectorAll('li');
-const list = document.querySelector('ul');
+// // remove element
+// const lis = document.querySelectorAll('li');
+// const list = document.querySelector('ul');
 
-lis[0].remove(); // remove from lis
-list.removeChild(lis[3]); // remove from list the parent
+// lis[0].remove(); // remove from lis
+// list.removeChild(lis[3]); // remove from list the parent
 
-// class
+// // class
 
-const firstLi = document.querySelector('li:first-child');
-const link = firstLi.children[0];
-link.classList.add('test'); // add a new class
-link.classList.remove('delete-item'); // remove a class
+// const firstLi = document.querySelector('li:first-child');
+// const link = firstLi.children[0];
+// link.classList.add('test'); // add a new class
+// link.classList.remove('delete-item'); // remove a class
 
 
-// attribute
+// // attribute
 
-link.setAttribute('href', 'http://www.google.com'); // set attribute specify attribute name and the value you want to pass
-link.hasAttribute('title'); // test if an attribtue exist or ntoe, returns true or false
-link.setAttribute('title', 'Google');
-link.removeAttribute('title');
-link.hasAttribute('title');
+// link.setAttribute('href', 'http://www.google.com'); // set attribute specify attribute name and the value you want to pass
+// link.hasAttribute('title'); // test if an attribtue exist or ntoe, returns true or false
+// link.setAttribute('title', 'Google');
+// link.removeAttribute('title');
+// link.hasAttribute('title');
 
-console.log(link.getAttribute('href'));
-console.log(link.getAttribute('class'));
-console.log(firstLi);
-console.log(link);
-console.log(link.className); // returns all class names without parsing
-console.log(link.classList[0]); // class list is a token list, looks like an array, youc an fetch each class by specifying the index
+// console.log(link.getAttribute('href'));
+// console.log(link.getAttribute('class'));
+// console.log(firstLi);
+// console.log(link);
+// console.log(link.className); // returns all class names without parsing
+// console.log(link.classList[0]); // class list is a token list, looks like an array, youc an fetch each class by specifying the index
 
-console.log(newHeading);
-console.log(oldHeading);
-console.log(cardAction);
+// console.log(newHeading);
+// console.log(oldHeading);
+// console.log(cardAction);
+
+
+// event listener - interact with the UI
+
+// document.querySelector('.clear-tasks').addEventListener('click', function (e) {
+//   console.log('hello');
+//   // e.preventDefault();
+// }) -- define the function inside of event listener
+
+document.querySelector('.clear-tasks').addEventListener('click', onClick);
+
+function onClick(a) {
+  let val;
+  // event target element
+  val = a.target;
+  // val = a.target.id;
+  val = a.target.className;
+  val = a.target.classList[0];
+
+
+  // event type
+  val = a.type;// click, mouseover, etc..
+
+  // time stamp
+
+  val = a.timeStamp;
+
+  // coords event relative to the window
+
+  val = a.clientY; // vertical coords
+  val = a.clientX; // horizontal coords
+
+  // coords event relative to the element itself
+
+  val = a.offsetY;
+  val = a.offsetX;
+  a.preventDefault();
+  console.log(val);
+} // define the function outside of event listener
+
