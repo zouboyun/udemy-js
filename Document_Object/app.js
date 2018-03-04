@@ -267,34 +267,86 @@
 //   // e.preventDefault();
 // }) -- define the function inside of event listener
 
-document.querySelector('.clear-tasks').addEventListener('click', onClick);
+// document.querySelector('.clear-tasks').addEventListener('click', onClick);
 
-function onClick(a) {
-  let val;
-  // event target element
-  val = a.target;
-  // val = a.target.id;
-  val = a.target.className;
-  val = a.target.classList[0];
+// function onClick(a) {
+//   let val;
+//   // event target element
+//   val = a.target;
+//   // val = a.target.id;
+//   val = a.target.className;
+//   val = a.target.classList[0];
 
 
-  // event type
-  val = a.type;// click, mouseover, etc..
+//   // event type
+//   val = a.type;// click, mouseover, etc..
 
-  // time stamp
+//   // time stamp
 
-  val = a.timeStamp;
+//   val = a.timeStamp;
 
-  // coords event relative to the window
+//   // coords event relative to the window
 
-  val = a.clientY; // vertical coords
-  val = a.clientX; // horizontal coords
+//   val = a.clientY; // vertical coords
+//   val = a.clientX; // horizontal coords
 
-  // coords event relative to the element itself
+//   // coords event relative to the element itself
 
-  val = a.offsetY;
-  val = a.offsetX;
-  a.preventDefault();
-  console.log(val);
-} // define the function outside of event listener
+//   val = a.offsetY;
+//   val = a.offsetX;
+//   a.preventDefault();
+//   console.log(val);
+// } // define the function outside of event listener
 
+// mouse events
+
+const clearBtn = document.querySelector('.clear-tasks');
+const card = document.querySelector('.card');
+const heading = document.querySelector('h5');
+
+//click
+
+// clearBtn.addEventListener('click', runEvent);
+
+// double click
+
+// clearBtn.addEventListener('dblclick', runEvent);
+// event handler
+
+// mouse down -- when you press mouse down
+
+// clearBtn.addEventListener('mousedown', runEvent);
+
+// mouse up -- when you let go the click
+
+// clearBtn.addEventListener('mouseup', runEvent);
+
+// mouse enter -- move mouse over the element not triggered if enter sub element
+
+// clearBtn.addEventListener('mouseenter', runEvent);
+
+// mouse leave -- leave mouse over the element not triggered if enter sub element
+
+// clearBtn.addEventListener('mouseleave', runEvent);
+
+// mouse over -- move mouse over the element -- gets triggered when you are in any sub element of the elements
+
+// card.addEventListener('mouseover', runEvent);
+
+// mouse out - move out of the element -- gets triggered when you are in any sub element of the elements
+
+// card.addEventListener('mouseout', runEvent);
+
+// mouse move -- very interactive like games
+
+card.addEventListener('mousemove', runEvent);
+
+function runEvent(e) {
+  console.log(`Event type: ${e.type}`);
+
+  heading.textContent = `MouseX: ${e.offsetX} MouseY: ${e.offsetY}`;
+
+  document.body.style.backgroundColor = `rgb(${e.offsetX} , ${e.offsetY}, 40)`
+
+  e.preventDefault();
+}
