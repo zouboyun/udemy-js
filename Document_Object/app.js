@@ -300,9 +300,9 @@
 
 // mouse events
 
-const clearBtn = document.querySelector('.clear-tasks');
-const card = document.querySelector('.card');
-const heading = document.querySelector('h5');
+// const clearBtn = document.querySelector('.clear-tasks');
+// const card = document.querySelector('.card');
+// const heading = document.querySelector('h5');
 
 //click
 
@@ -339,14 +339,62 @@ const heading = document.querySelector('h5');
 
 // mouse move -- very interactive like games
 
-card.addEventListener('mousemove', runEvent);
+// card.addEventListener('mousemove', runEvent);
+
+// function runEvent(e) {
+//   console.log(`Event type: ${e.type}`);
+
+//   heading.textContent = `MouseX: ${e.offsetX} MouseY: ${e.offsetY}`;
+
+//   document.body.style.backgroundColor = `rgb(${e.offsetX} , ${e.offsetY}, 40)`
+
+//   e.preventDefault();
+// }
+
+// keyboard and input events
+
+const form = document.querySelector('form');
+const taskInput = document.getElementById('task');
+const heading = document.querySelector('h5');
+const select = document.querySelector('select');
+// clear input
+taskInput.value = '';
+
+// form.addEventListener('submit', runEvent);
+
+// key down
+// taskInput.addEventListener('keydown', runEvent);
+
+// key up -- let go your key
+// taskInput.addEventListener('keyup', runEvent);
+
+// key press
+// taskInput.addEventListener('keypress', runEvent);
+
+// focus -- click inside of the box to show the little I
+// taskInput.addEventListener('focus', runEvent);
+
+// blur -- click outside of the box
+// taskInput.addEventListener('blur', runEvent);
+
+// cut -- ctrl x also fires the event
+// taskInput.addEventListener('cut', runEvent);
+
+// paste -- ctrl x also fires the event
+// taskInput.addEventListener('paste', runEvent);
+
+// Input -- triggers any event
+// taskInput.addEventListener('input', runEvent);
+
+// change event on select list
+select.addEventListener('change', runEvent);
+
 
 function runEvent(e) {
-  console.log(`Event type: ${e.type}`);
+  console.log(`EVENT TYPE: ${e.type} `);
+  // console.log(taskInput.value);
+  console.log(e.target.value);
 
-  heading.textContent = `MouseX: ${e.offsetX} MouseY: ${e.offsetY}`;
-
-  document.body.style.backgroundColor = `rgb(${e.offsetX} , ${e.offsetY}, 40)`
-
-  e.preventDefault();
+  // heading.innerText = e.target.value; // it is like data binding in angular
+  // e.preventDefault();
 }
