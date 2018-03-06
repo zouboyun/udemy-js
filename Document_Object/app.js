@@ -387,14 +387,58 @@ taskInput.value = '';
 // taskInput.addEventListener('input', runEvent);
 
 // change event on select list
-select.addEventListener('change', runEvent);
+// select.addEventListener('change', runEvent);
 
 
-function runEvent(e) {
-  console.log(`EVENT TYPE: ${e.type} `);
-  // console.log(taskInput.value);
-  console.log(e.target.value);
+// function runEvent(e) {
+//   console.log(`EVENT TYPE: ${e.type} `);
+//   // console.log(taskInput.value);
+//   console.log(e.target.value);
 
   // heading.innerText = e.target.value; // it is like data binding in angular
   // e.preventDefault();
+// }
+
+
+// event bubbling and delegation
+
+// bubbling is put the event on child and bubble up to parent
+
+
+// document.querySelector('.card-title').addEventListener('click', function (){
+//   console.log('card title');
+// });
+
+
+// document.querySelector('.card-content').addEventListener('click', function (){
+//   console.log('card content');
+// }); // card title's parent
+
+
+// document.querySelector('.card').addEventListener('click', function (){
+//   console.log('card');
+// }); // card content's parent
+
+// document.querySelector('.col').addEventListener('click', function (){
+//   console.log('col');
+// }); // card's parent
+
+// when you click on card-title all its parents and grand and great grand parents and of course great great parents get triggered too
+
+
+// delegation is put the event on parent and target on one of the children
+
+// const deleteItem = document.querySelector('.delete-item');
+
+// deleteItem.addEventListener('click', delItem);
+
+document.body.addEventListener('click', delItem);
+
+function delItem(e) {
+ 
+  if(e.target.parentElement.classList.contains('delete-item')) {
+    console.log('delete item');
+    e.target.parentElement.parentElement.remove();
+  } // specify child, tartget the item
 }
+
