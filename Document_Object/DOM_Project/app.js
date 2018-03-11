@@ -6,7 +6,6 @@ const clearBtn = document.querySelector('.clear-tasks');
 const filter = document.querySelector('#filter');
 const taskInput = document.querySelector('#task');
 
-
 // load all event listeners
 
 loadEventListerners();
@@ -15,10 +14,10 @@ loadEventListerners();
 
 function loadEventListerners() {
   // Add task event
-
   form.addEventListener('submit', addTask);
+  // Remove task event
+  taskList.addEventListener('click', removeTask);
 }
-
 // Add Task
 
 function addTask(e) {
@@ -26,6 +25,7 @@ function addTask(e) {
   if(taskInput.value === '') {
     alert('Add a task');
   }
+  else {
   // create list items
   const li = document.createElement('li');
   // add class name
@@ -37,12 +37,23 @@ function addTask(e) {
   // add class name
   link.className = 'delete-item secondary-content';
   // add icon html
-  link.innerHTML = '<i class ="fa fa-remove"></i>'
+  link.innerHTML = '<i class ="fa fa-remove"></i>';
   // append the link to li
   li.appendChild(link);
   // append the li to the ul
   taskList.appendChild(li);
   // clear the input
   taskInput.value = '';
-  e.preventDefault();
+  e.preventDefault();}
+}
+
+
+// Remove task
+
+function removeTask(e) {
+  // target at the link a tag and remove the link's parent
+  if(e.target.parentElement.classList.contains('delete-item')) {
+    e.target.parentElement.parentElement.remove();
+  }
+
 }
