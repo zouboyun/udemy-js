@@ -69,8 +69,10 @@ function clearTasks(e) {
   // clear the innerHTML
   // taskList.innerHTML = '';
   // loop through each child this is faster
-  while(taskList.firstChild) {
-    taskList.removeChild(taskList.firstChild);
+  if(confirm('Are you sure?')) {
+    while(taskList.firstChild) {
+      taskList.removeChild(taskList.firstChild);
+    }
   }
 }
 
