@@ -69,7 +69,6 @@ function storeTaskInLocalStorage(task) {
 }
 
 
-
 // Remove task
 
 function removeTask(e) {
