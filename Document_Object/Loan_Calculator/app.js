@@ -6,8 +6,25 @@ const interestRate = document.querySelector('#interest-rate');
 const yearToRepay = document.querySelector('#years-to-repay');
 const calculate = document.querySelector('#calculate');
 
-console.log(form);
-console.log(amount);
-console.log(interestRate);
-console.log(yearToRepay);
-console.log(calculate);
+// console.log(form);
+// console.log(amount);
+// console.log(interestRate);
+// console.log(yearToRepay);
+// console.log(calculate);
+
+// load all event listeners
+
+loadEventListerners();
+
+// load all event listeners
+
+function loadEventListerners() {
+  calculate.addEventListener('click', calculateRate);
+}
+
+function calculateRate(e) {
+  if(amount.value === "") {
+    alert("put in amount");
+  }
+  e.preventDefault();
+}
