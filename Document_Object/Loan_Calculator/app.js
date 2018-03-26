@@ -11,7 +11,7 @@ loadEventListerners();
 // load all event listeners
 
 function loadEventListerners() {
-  form.addEventListener('submit', calculateRate);
+  form.addEventListener('keyup', calculateRate);
 }
 
 function calculateRate(e) {
@@ -35,14 +35,9 @@ function calculateRate(e) {
   const p = calInterest * x * principal / (x - 1);
 
 
-  if (isFinite(p)) {
-    monthlyPayment.value = p.toFixed(2); // set decimal place to be 2
-    totalPayment.value = ((p * calFrequency) + dp).toFixed(2);
-    totalInterest.value = ((p * calFrequency) - principal).toFixed(2);
-  } else {
-    alert('oops wrong number');
-  }
-
+  monthlyPayment.value = p.toFixed(2); // set decimal place to be 2
+  totalPayment.value = ((p * calFrequency) + dp).toFixed(2);
+  totalInterest.value = ((p * calFrequency) - principal).toFixed(2);
 
 
   e.preventDefault();
