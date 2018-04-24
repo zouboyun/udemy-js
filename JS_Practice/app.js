@@ -28,5 +28,6 @@ function main() {
   alert(reduced(product)(1, doubledFib));
   alert(reduced(product)(1, mapped(triple)(fib))); // mapped triple fib -> 3, 6, 9, 15, 24
 }
-main();
+//main();
+
 
