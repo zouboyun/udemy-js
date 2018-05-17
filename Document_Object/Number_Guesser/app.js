@@ -26,3 +26,27 @@ const game = document.querySelector('#game'),
 minNum.textContent = min;
 maxNum.textContent = max;
 
+// Event listener
+
+guessBtn.addEventListener('click', function() {
+  let guess = parseInt(guessInput.value);
+  // console.log(guess);
+  // add validations for the input value
+  if (isNaN(guess) || guess < min || guess > max) {
+    setMsg(`Please input a number betwen ${min} and ${max}`, 'red');
+  }
+  // add message for winning
+  if (guess === winNum) {
+    // disable input
+    guessInput.disabled = true;
+    // change border color
+    guessInput.style.bordercolor = 'green';
+    // set message
+    setMsg(`That's a bingo! ${winNum} is correct.`, 'green');
+  }
+});
+
+function setMsg(message, color) {
+  msg.textContent = message;
+  msg.style.color = color;
+}
