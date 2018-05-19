@@ -86,7 +86,7 @@ const alice = new Person('Alice', 'Zou', '11/29/2001');
 const john = new Person('John', 'Wang', '9/19/1987');
 
 console.log(typeof Person);
-console.log(typeof alice);
+console.log(alice);
 console.log(alice.calculateAge());
 console.log(john.hasOwnProperty('firstName')); // true
 console.log(john.hasOwnProperty('getNickName')); // true
@@ -167,3 +167,38 @@ const james = Object.create(personPrototypes, {
 });
 
 console.log(james.greeting());
+
+// ES6 classes
+
+class PersonClass {
+  constructor(firstName, lastName, dob) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.birthday = new Date(dob);
+  }
+
+  greeting() {
+    return `Hello ${this.firstName} ${this.lastName}!`
+  }
+
+  getAge() {
+    const diff = Date.now() - this.birthday.getTime();
+    const ageDate = new Date(diff);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  }
+
+  getMarried(newLastName) {
+    this.lastName = newLastName;
+  }
+
+  // static methods cannot be called with the instance because it is not part of the property, has to be called with the class, it's under prototype -> constructor
+
+  static addNumbers(x, y) {
+    return x + y;
+  }
+}
+
+const lily = new PersonClass('Lily', 'Bass', '1/1/1950');
+lily.getMarried('James');
+
+console.log(lily);
