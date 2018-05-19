@@ -202,3 +202,25 @@ const lily = new PersonClass('Lily', 'Bass', '1/1/1950');
 lily.getMarried('James');
 
 console.log(lily);
+
+// Sub Classes using extends
+
+class CustomerClass extends PersonClass {
+  constructor(firstName, lastName, phone, email) {
+    super(firstName, lastName); // super is copying parent class
+    this.phone = phone;
+    this,email = email;
+  }
+
+  static getMembershipFee() {
+    return 500;
+  }
+}
+
+const peter = new CustomerClass('Peter', 'Jack', '123', '123@123.com');
+
+// Sub class will have all the properties and prototype from the parent class, also the static methods
+
+console.log(peter);
+console.log(CustomerClass.addNumbers(1, 2));
+console.log(CustomerClass.getMembershipFee());
