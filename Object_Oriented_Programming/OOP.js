@@ -133,3 +133,37 @@ console.log(eric);
 console.log(eric.greeting());
 console.log(customer1);
 console.log(customer1.greeting());
+
+// Using Object.create
+
+/*
+create prototypes inside of parent object and have different properties with different prototype methods
+*/
+
+const personPrototypes = {
+  greeting: function() {
+    return `Hello ${this.firstName} ${this.lastName}!` ;
+  },
+  getMarried: function(newLastName) {
+    this.lastName = newLastName;
+  }
+}
+
+const mary = Object.create(personPrototypes); // pass in prototype as a parameter for Object.create
+
+mary.firstName = 'Mary';
+mary.lastName = 'Wana';
+mary.age = 16;
+mary.getMarried('Dickson');
+
+console.log(mary.greeting());
+
+// Different way of using Object.create method is to include prototype as the first parameter, the values of the object as the second parameter following the syntax below
+
+const james = Object.create(personPrototypes, {
+  firstName: {value: 'James'},
+  lastName: {value: 'Wu'},
+  age: {value: 37}
+});
+
+console.log(james.greeting());
