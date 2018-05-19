@@ -1,15 +1,3 @@
-// Person constructor
-
-function Person(name, dob) {
-  this.name = name;
-  this.birthday = new Date(dob);
-  this.age = new Date().getFullYear() - this.birthday.getFullYear();
-};
-
-
-const alice = new Person('Alice', '11/29/2001');
-const john = new Person('John', '9/19/1987');
-
 // String
 
 const name1 = 'Jeff'; // this is a primitive value
@@ -67,3 +55,38 @@ const regex2 = new RegExp('\w+');
 
 console.log(typeof regex1);
 console.log(typeof regex2);
+
+// Object and Prototype
+
+/*
+- Prototype is an object, it has its own properties and methods
+- there are Object.prototype and NewObject.prototype
+- NewObject which is initialized from the object will have the prototype of object included in its own prototype
+*/
+// Person constructor
+
+function Person(firstName, lastName, dob) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.birthday = new Date(dob);
+  this.getNickName = function() {
+    return this.firstName + 'xixi';
+  }
+};
+
+Person.prototype.calculateAge = function() {
+  return new Date().getFullYear() - this.birthday.getFullYear();
+}
+
+Person.prototype.getFullName = function() {
+  return this.firstName + ' ' + this.lastName;
+}
+const alice = new Person('Alice', 'Zou', '11/29/2001');
+const john = new Person('John', 'Wang', '9/19/1987');
+
+console.log(alice.calculateAge());
+console.log(john);
+console.log(john.hasOwnProperty('firstName')); // true
+console.log(john.hasOwnProperty('getNickName')); // true
+console.log(john.hasOwnProperty('getFullName')); // false because getFullName is not a property in the object but in the prototype of the Person object
+console.log(Person.prototype.hasOwnProperty('getFullName')); // true
