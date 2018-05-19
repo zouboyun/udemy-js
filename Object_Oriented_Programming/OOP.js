@@ -62,6 +62,7 @@ console.log(typeof regex2);
 - Prototype is an object, it has its own properties and methods
 - there are Object.prototype and NewObject.prototype
 - NewObject which is initialized from the object will have the prototype of object included in its own prototype
+- instances of objects won't have prototype
 */
 // Person constructor
 
@@ -84,9 +85,51 @@ Person.prototype.getFullName = function() {
 const alice = new Person('Alice', 'Zou', '11/29/2001');
 const john = new Person('John', 'Wang', '9/19/1987');
 
+console.log(typeof Person);
+console.log(typeof alice);
 console.log(alice.calculateAge());
-console.log(john);
 console.log(john.hasOwnProperty('firstName')); // true
 console.log(john.hasOwnProperty('getNickName')); // true
 console.log(john.hasOwnProperty('getFullName')); // false because getFullName is not a property in the object but in the prototype of the Person object
 console.log(Person.prototype.hasOwnProperty('getFullName')); // true
+
+// Prototypal Inheritance
+
+/*
+- Have one object inherited from another object
+- In the example below, Customer object will inherit the prototype from the Ppl object
+*/
+
+// create Ppl constructor
+function Ppl(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+// add greeting function to Ppl prototype
+Ppl.prototype.greeting = function() {
+  return `Hello ${this.firstName} ${this.lastName}.`;
+}
+
+// create Customer constructor
+function Customer(firstName, lastName, phone, membership) {
+  Ppl.call(this, firstName, lastName);
+  this.phone = phone;
+  this.membership = membership;
+}
+
+// inherit Ppl prototype
+Customer.prototype = Object.create(Ppl.prototype);
+Customer.prototype.constructor = Customer;
+
+const eric = new Ppl('Eric', 'Gu');
+const customer1 = new Customer('foo', 'bar', '12324', 'Standard');
+
+// change Customer greeting function
+Customer.prototype.greeting = function() {
+  return `Welcome to costco ${this.firstName} ${this.lastName}!`
+}
+console.log(eric);
+console.log(eric.greeting());
+console.log(customer1);
+console.log(customer1.greeting());
