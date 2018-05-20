@@ -42,7 +42,17 @@ UI.prototype.sendMsg = function(msg, msgType) {
     document.querySelector('.alert').remove();
   }, 3000);
 }
-// Event listeners
+
+// removeBook
+UI.prototype.removeBook = function(target) {
+  if (target.className === 'delete') {
+    if (confirm('Are you sure you want to delete?')) {
+      target.parentElement.parentElement.remove();
+    }
+  }
+}
+
+// Event Listener - add book
 document.querySelector('#book-form').addEventListener('submit', function(e) {
   // fetch values from UI input
   const title = document.querySelector('#title').value,
@@ -63,6 +73,18 @@ document.querySelector('#book-form').addEventListener('submit', function(e) {
     // show success after adding book
     ui.sendMsg(`Book <i>${title}</i> is successfully added to your list!`, 'success');
   }
+
+  e.preventDefault();
+})
+
+// Event Listener -- remove book
+document.querySelector('#book-list').addEventListener('click', function(e) {
+// instantiate UI
+  const ui = new UI();
+  // delete book from UI;
+  ui.removeBook(e.target);
+  // show success after deleting book
+  ui.sendMsg(`Book is successfully removed from your list!`, 'success');
 
   e.preventDefault();
 })
