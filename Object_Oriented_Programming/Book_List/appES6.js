@@ -41,8 +41,13 @@ class UI {
 
   removeBook(target) {
     if (target.className === 'delete') {
-      if (confirm('Are you sure you want to delete?')) {
+      if (confirm(`Are you sure you want to delete ${target.parentElement.parentElement.firstElementChild.textContent}?`)) {
         target.parentElement.parentElement.remove();
+        // delete book from local storage
+        LocalStorage.removeBooks(target.parentElement.previousElementSibling.textContent);
+        // show success after deleting book
+        const ui = new UI();
+        ui.sendMsg(`Book <i>${target.parentElement.parentElement.firstElementChild.textContent}</i> is successfully removed from your list!`, 'success');
       }
     }
   }
@@ -118,10 +123,6 @@ document.querySelector('#book-list').addEventListener('click', function(e) {
   const ui = new UI();
   // delete book from UI;
   ui.removeBook(e.target);
-  // delete book from local storage
-  LocalStorage.removeBooks(e.target.parentElement.previousElementSibling.textContent);
-  // show success after deleting book
-  ui.sendMsg(`Book is successfully removed from your list!`, 'success');
 
   e.preventDefault();
 })
