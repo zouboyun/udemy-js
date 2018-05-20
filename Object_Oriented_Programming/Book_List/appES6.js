@@ -48,6 +48,43 @@ class UI {
   }
 }
 
+// Local Storage class
+class LocalStorage {
+  static getBooks() {
+    let books;
+    if (localStorage.getItem('books') === null) {
+      books = [];
+    } else {
+      books = JSON.parse(localStorage.getItem('books'));
+    }
+    return books;
+  }
+  static displayBooks() {
+    let books = LocalStorage.getBooks();
+    books.forEach(function(book) {
+      const ui = new UI();
+      ui.addBookToList(book);
+    })
+  }
+  static addBooks(book) {
+    let books = LocalStorage.getBooks();
+    books.push(book);
+    localStorage.setItem('books', JSON.stringify(books));
+  }
+  static removeBooks(isbn) {
+    let books = LocalStorage.getBooks();
+    books.forEach(function(book, index) {
+      if (book.isbn === isbn) {
+        books.splice(index, 1);
+      }
+    });
+    localStorage.setItem('books', JSON.stringify(books));
+  }
+}
+
+// Event Listener - display book when reload
+document.addEventListener('DOMContentLoaded', LocalStorage.displayBooks)
+
 // Event Listener - add book
 document.querySelector('#book-form').addEventListener('submit', function(e) {
   // fetch values from UI input
@@ -64,6 +101,8 @@ document.querySelector('#book-form').addEventListener('submit', function(e) {
   } else {
     // add book to the book list
     ui.addBookToList(book);
+    // add book to local storage
+    LocalStorage.addBooks(book);
     // clear UI input once submit
     ui.clearFields();
     // show success after adding book
@@ -75,10 +114,12 @@ document.querySelector('#book-form').addEventListener('submit', function(e) {
 
 // Event Listener -- remove book
 document.querySelector('#book-list').addEventListener('click', function(e) {
-// instantiate UI
+  // instantiate UI
   const ui = new UI();
   // delete book from UI;
   ui.removeBook(e.target);
+  // delete book from local storage
+  LocalStorage.removeBooks(e.target.parentElement.previousElementSibling.textContent);
   // show success after deleting book
   ui.sendMsg(`Book is successfully removed from your list!`, 'success');
 
