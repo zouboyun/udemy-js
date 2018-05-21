@@ -9,7 +9,8 @@ function loadData() {
   xhr.onload = function() {
     // check status code to make sure it is 200 (OK)
     if (this.status === 200) {
-      console.log(this.responseText);
+      document.getElementById('output-data').textContent = this.responseText;
+      document.getElementById('output-data').style.color = 'red';
     }
   }
   //The XMLHttpRequest method send() sends the request to the server
