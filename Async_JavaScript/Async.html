@@ -9,14 +9,18 @@
 </head>
 <body>
   <div class="container">
-    <button id="get-customer">Get Customer</button>
-    <button id="get-customers">Get Customers</button>
-    <br><br>
-    <h1>Customer</h1>
-    <div id="customer"></div>
-    <h1>Customers</h1>
-    <div id="customers"></div>
+    <h2>Joke Generator</h2>
+    <form>
+      <div>
+        <label for="number">Number of Jokes</label>
+        <input type="number" id="number-jokes">
+      </div>
+      <div>
+        <button id="get-jokes">Get Jokes</button>
+      </div>
+    </form>
+    <ul id="jokes"></ul>
   </div>
-  <script src="AsyncJSON.js"></script>
+  <script src="Joke.js"></script>
 </body>
 </html>
