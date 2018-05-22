@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Alice",
+    "age": 16,
+    "company": "Salesforce",
+    "membership": "Gold"
+  },
+  {
+    "id": 2,
+    "name": "James",
+    "age": 36,
+    "company": "Minted",
+    "membership": "Platinum"
+  },
+  {
+    "id": 3,
+    "name": "Aric",
+    "age": 40,
+    "company": "Mira Technology",
+    "membership": "Silver"
+  }
+]
