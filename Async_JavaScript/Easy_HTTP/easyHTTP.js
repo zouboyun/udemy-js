@@ -20,8 +20,8 @@ EasyHTTP.prototype.get = function(url, callBack) {
 
 // Make an HTTP POST Request
 EasyHTTP.prototype.post = function(url, data, callBack) {
-  this.xhr = new XMLHttpRequest();
   this.xhr.open('POST', url, true);
+  this.xhr.setRequestHeader('Content-type', 'application/JSON');
   let self = this;
   this.xhr.onload = function() {
     if (self.xhr.status === 201) {
@@ -34,5 +34,13 @@ EasyHTTP.prototype.post = function(url, data, callBack) {
 }
 
 // Make an HTTP PUT Request
-
+EasyHTTP.prototype.put = function(url, data, callBack) {
+  this.xhr.open('PUT', url, true);
+  this.xhr.setRequestHeader('Content-type', 'application/JSON');
+  let self = this;
+  this.xhr.onload = function() {
+    callBack(null, self.xhr.responseText);
+  }
+  this.xhr.send(JSON.stringify(data));
+}
 // Make an HTTP DELETE Request

@@ -15,10 +15,19 @@ const data = {
   title: 'Custom Popo',
   body: 'This is a test post.'
 }
-http.post('https://jsonplaceholder.typicode.com/posts', data, function(err, post) {
-  if (err) {
+// http.post('https://jsonplaceholder.typicode.com/posts', data, function(err, post) {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log(JSON.parse(post));
+//   }
+// });
+
+// Update post
+http.put('https://jsonplaceholder.typicode.com/posts/1', data, function(err, post) {
+    if (err) {
     console.log(err);
   } else {
     console.log(JSON.parse(post));
   }
-});
+})
