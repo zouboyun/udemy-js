@@ -1,9 +1,63 @@
 class EasyHTTP {
   // Make HTTP GET request
   get(url) {
-    fetch(url)
+    return new Promise((resolve, reject) => {
+      fetch(url, {
+        method: 'GET',
+        headers: {
+          'Content-type': 'application/json'
+        }
+      })
       .then(res => res.json())
-        .then(data => console.log(data))
-      .catch(err => console.log(err))
+        .then(data => resolve(data))
+      .catch(err => reject(err))
+    })
+  }
+
+  // Make HTTP POST request
+  post(url, post) {
+    return new Promise((resolve, reject) => {
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(post)
+      })
+      .then(res => res.json())
+        .then(data => resolve(data))
+      .catch(err => reject(err))
+    })
+  }
+
+  // Make HTTP PUT request
+  put(url, post) {
+    return new Promise((resolve, reject) => {
+      fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(post)
+      })
+      .then(res => res.json())
+        .then(data => resolve(data))
+      .catch(err => reject(err))
+    })
+  }
+
+  // Make HTTP DELETE request
+  delete(url) {
+    return new Promise((resolve, reject) => {
+      fetch(url, {
+        method: 'DELETE',
+        headers: {
+          'Content-type': 'application/json'
+        }
+      })
+      .then(res => res.json())
+        .then(data => resolve('post deleted.'))
+      .catch(err => reject(err))
+    })
   }
 }
