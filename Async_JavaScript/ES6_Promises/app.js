@@ -37,3 +37,27 @@ createPost({title: 'Post Three', body: 'This is a post.'})
 .catch(function(err) {
   console.log(err);
 });
+
+// await -- adding async in front of function returns a promise
+async function myFunc() {
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve('Hello'), 5000);
+  });
+  const res =  await promise; // wait until the promise is resolved
+  return res;
+}
+
+myFunc()
+  .then(res => console.log(res));
+
+async function getUsers() {
+  const res = await fetch
+  ('https://jsonplaceholder.typicode.com/users');
+
+  const data = await res.json();
+
+  return data;
+}
+
+getUsers()
+  .then(users => console.log(users));
