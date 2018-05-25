@@ -3,7 +3,11 @@ class UI {
     this.profile = document.getElementById('profile');
   }
 
+  // display profile when input is found in github api
   showProfile(user) {
+    // remove existing alerts
+    this.clearAlert();
+    // show profile
     this.profile.innerHTML = `
     <div class="card card-body mb-3">
       <div class="row">
@@ -28,5 +32,34 @@ class UI {
     </div>
     <h3 class="page-heading mb-3">Latest Repos</h3>
     `;
+  }
+
+  // show alert when input is not found in github api
+  showAlert(msg, className) {
+    // remove existing alerts
+    this.clearAlert();
+    // remove existing profile
+    this.profile.innerHTML = '';
+    // show alert message
+    const alertMsg = document.createElement('div');
+    alertMsg.className = className;
+    alertMsg.textContent = msg;
+    // get parent node
+    const searchContainer = document.querySelector('.search-container');
+    searchContainer.appendChild(alertMsg);
+  }
+
+  // claer existing alert
+  clearAlert() {
+    const alert = document.querySelector('.alert');
+    if (alert) {
+      alert.remove();
+    }
+  }
+
+  // clear profile when input is empty
+  clearProfile() {
+    this.profile.innerHTML = '';
+    this.clearAlert();
   }
 }
