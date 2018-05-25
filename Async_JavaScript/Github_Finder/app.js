@@ -15,10 +15,12 @@ document.getElementById('search-user').addEventListener(
         .then(data => {
           if (data.profile.message === 'Not Found') {
             /* code to show alert*/
-            ui.showAlert('User not found on Github!', 'alert alert-danger');
+            ui.showAlert('User not found on Github!', 'alert alert-danger', 'Profile Missing');
           } else {
             /* code to show profile*/
             ui.showProfile(data.profile);
+            /* code to show repo*/
+            ui.showRepo(data.repo);
           }
         })
         .catch(err => console.log(err));
