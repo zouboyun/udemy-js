@@ -21,31 +21,37 @@
           <li class="list-group-item" id="w-feels-like"></li>
         </ul>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-warning mt-3" data-toggle="modal" data-target="#exampleModal">
+        <button type="button" class="btn btn-outline-warning mt-3" data-toggle="modal" data-target="#localModal">
         Change Location
         </button>
       </div>
     </div>
   </div>
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="localModal" tabindex="-1" role="dialog" aria-labelledby="localModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Change Location</h5>
+          <h5 class="modal-title" id="localModalLabel">Change Location</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <label for="city">City</label>
-          <input type="text" id="city">
-          <label for="state">State</label>
-          <input type="text" id="state">
+          <form id="w-form">
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" id="city" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="state">State</label>
+              <input type="text" id="state" class="form-control">
+            </div>
+          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" id="w-change-btn" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
