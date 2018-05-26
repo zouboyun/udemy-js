@@ -14,8 +14,8 @@ class UI {
     this.desc.textContent = weather.weather;
     this.tem.textContent = weather.temperature_string;
     this.icon.src = weather.icon_url;
-    this.humidity.textContent = `Humidity: ${weather.relative_humidity}`;
-    this.wind.textContent = `Wind: ${weather.wind_mph} mph`;
-    this.feels_like.textContent = `Feels like ${weather.feelslike_string}`
+    this.humidity.textContent = `Relative Humidity: ${weather.relative_humidity}`;
+    this.wind.textContent = `Wind: ${weather.wind_string}`;
+    this.feels_like.textContent = `Feels like: ${weather.feelslike_string}`
   }
 }
