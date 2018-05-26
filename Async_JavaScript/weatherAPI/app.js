@@ -2,6 +2,8 @@
 const weather = new Weather('San Francisco', 'CA');
 // init ui class
 const ui = new UI();
+// init storage class
+const storage = new Storage();
 
 // add event listener
 document.addEventListener('DOMContentLoaded', getWeather);
