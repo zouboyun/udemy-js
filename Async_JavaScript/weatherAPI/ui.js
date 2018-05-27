@@ -23,17 +23,18 @@ class UI {
   displayDropdown(location) {
     let cityList = '<option selected disabled>-- Please Select --</option>';
     let stateList = '<option selected disabled>-- Please Select --</option>';
-    location.cities.forEach(city => {
-      cityList += `
-        <option>${city}</option>
-      `
-    })
-    this.city.innerHTML = cityList;
     location.states.forEach(state => {
       stateList += `
         <option>${state}</option>
       `
     })
     this.state.innerHTML = stateList;
+    location.cities.forEach(city => {
+      cityList += `
+        <option>${city}</option>
+      `
+    })
+    this.city.innerHTML = cityList;
+
   }
 }
