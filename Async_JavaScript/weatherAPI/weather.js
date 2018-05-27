@@ -11,6 +11,12 @@ class Weather {
     return responseData.current_observation;
   }
 
+  async setDropdown() {
+    const response = await fetch('data.json');
+    const responseData = await response.json();
+    return responseData;
+  }
+  
   changeLocation(city, state) {
     this.city = city;
     this.state = state;
