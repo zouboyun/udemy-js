@@ -37,4 +37,15 @@ class UI {
     this.city.innerHTML = cityList;
 
   }
+  displayError(msg, className) {
+    const error = document.createElement('div');
+    error.textContent = msg;
+    error.className = className;
+    document.getElementById('top').appendChild(error);
+  }
+  clearError() {
+    if (document.querySelector('.alert-danger')) {
+      document.querySelector('.alert-danger').remove();
+    }
+  }
 }
