@@ -47,3 +47,26 @@ re = /Hel{2,}o/i; // must appear at least two times
 /* () --  grouping */
 re = /([0-9]x){3}/; // look for (number + x) to appear three times
 
+/* w -- word characters */
+re = /\w/; // finds the first word character, ';' will NOT match; '_' will match
+re = /\w+/; // finds one more more word characters
+
+/* W -- non-word character */
+re = /\W/; // '4' and 'h' will NOT match; '!' will match; ' ' will match
+re = /\W+/; // will match one or more non-word characters
+
+/* d -- digit */
+re = /\d/; // will match any digit
+re = /\d+/; // will match one or more digits
+
+/* D -- non-digit */
+re = /\D/; // will match any non-digit
+re = /\D+/; // will match one or more non-digits
+
+/* s -- white space */
+
+/* S -- non-white space character */
+
+/*  */
+
+/*  */
